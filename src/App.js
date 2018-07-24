@@ -12,15 +12,6 @@ import "./styles/styles.scss"
 const store=configureStore();
 
 
-
-const expense1=store.dispatch(addExpense({description:"water bill",amount:5000,createdAt: -25500}));
-const expense2=store.dispatch(addExpense({description:"gas bill",amount:1500,createdAt: -1000}));
-const expense3=store.dispatch(addExpense({description:"Rent",amount:1000,createdAt: -5000}));
-
-console.log(store.getState());
-const state=store.getState();
-const visibleExpenses=getVisibleExpenses(state.expenses,state.filters);
-console.log(visibleExpenses);
 const jsx=(
     <Provider store={store}>
     <ExpensifyAppRouters />
