@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server public/",
-    "build": "webpack --mode=development",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --mode=development"
   },
   "author": "amrit chhetri",
@@ -19,9 +20,10 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "live-server": "^1.2.0",
     "moment": "^2.22.2",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "normalize.css": "^8.0.0",
     "react": "^16.4.0",
     "react-addons-shallow-compare": "^15.6.2",

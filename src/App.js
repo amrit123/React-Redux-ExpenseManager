@@ -3,14 +3,11 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import ExpensifyAppRouters from "./components/ExpensifyAppRouters";
 import configureStore from "./store/configStore";
-import { addExpense,removeExpense,editExpense } from "./actions/expenseActions"
-import getVisibleExpenses from "./selectors/expenseFilter";
-import { setTextFilter,sortByDate,sortByAmount,setStartDate,setEndDate } from "./actions/filtersActions"
 import "normalize.css/normalize.css";
 import "./styles/styles.scss"
-
+console.log("testing");
 const store=configureStore();
-
+console.log("testing");
 
 const jsx=(
     <Provider store={store}>
