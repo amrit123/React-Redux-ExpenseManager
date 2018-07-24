@@ -1,4 +1,8 @@
 //this file holds the base css styling for our whole app.
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
 html {  
     font-size: 62.5%;
   }
