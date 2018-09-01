@@ -2,7 +2,7 @@
 import React from 'react'
 import ExpenseForm from "./ExpenseForm";
 import { connect } from "react-redux";
-import { addExpense } from "../actions/expenseActions";
+import { startAddExpense } from "../actions/expenseActions";
 
 const AddExpensePage=(props)=>(
 
@@ -11,7 +11,7 @@ const AddExpensePage=(props)=>(
         <ExpenseForm 
         onSubmit={(expense)=>{
           console.log(expense);
-      props.dispatch(addExpense(expense));
+      props.dispatch(startAddExpense(expense));
       props.history.push("/");
         }}
         />
@@ -19,4 +19,7 @@ const AddExpensePage=(props)=>(
     
  
     );
+
+    //we can also use mapdispatchtpprops to dispatch the action. it will be helpfull for testing.
+    //check lecture 124 and 152 for more.
 export default connect()(AddExpensePage);

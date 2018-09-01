@@ -4,7 +4,9 @@ import { Provider } from "react-redux";
 import ExpensifyAppRouters from "./components/ExpensifyAppRouters";
 import configureStore from "./store/configStore";
 import "normalize.css/normalize.css";
-import "./styles/styles.scss"
+import "./styles/styles.scss";
+import "./firebase/firebase";
+//import "./playground/promise";
 console.log("testing");
 const store=configureStore();
 console.log("testing");

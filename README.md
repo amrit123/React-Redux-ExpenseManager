@@ -10,3 +10,6 @@ npm or yarn
 download the zip
 in terminal initialize with npm init.it will download all the package
 to start the app:npm run dev-server or npm run serve
+
+## heroku url
+https://expenstracker.herokuapp.com/
