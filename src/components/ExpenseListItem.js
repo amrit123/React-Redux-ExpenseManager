@@ -2,6 +2,8 @@ import React from "react";
 import { Link} from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
+import { connect } from "react-redux";
+import { startRemoveExpenses } from "../actions/expenseActions";
 // load a locale
 numeral.register('locale', 'no', {
   delimiters: {
@@ -32,9 +34,12 @@ numeral.locale('no');
     <br/>
    Created At: {moment(props.expenseItem.createdAt).format("Do MMMM, YYYY")}
    <br/>
-   
+   <button onClick={()=>{
+    props.dispatch(startRemoveExpenses({ id:props.expenseItem.id }));
+    //props.history.push("/");
+}}> remove </button>
     </div>
  
 );
 
-export default ExpenseListItem;
+export default connect ()(ExpenseListItem);
