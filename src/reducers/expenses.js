@@ -8,6 +8,7 @@ export default(state=expenseReducerDefault,action)=>{
            ...state,
            action.expense
        ]
+
        case "REMOVE_EXPENSE":
      return state.filter((expense)=>(expense.id!==action.id))
      
@@ -23,6 +24,12 @@ export default(state=expenseReducerDefault,action)=>{
              return expense;
          }
          })
+
+
+         case "SET_EXPENSE":
+         return action.expenses;
+         
+
         default:
         return state
     }

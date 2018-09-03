@@ -6,6 +6,7 @@ import configureStore from "./store/configStore";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "./firebase/firebase";
+import { startSetExpenses } from "./actions/expenseActions";
 //import "./playground/promise";
 console.log("testing");
 const store=configureStore();
@@ -18,7 +19,11 @@ const jsx=(
 );
 
 
-ReactDOM.render(jsx, document.getElementById("app"));
+ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
+store.dispatch( startSetExpenses()).then(()=>{
+    ReactDOM.render(jsx, document.getElementById("app"));
+});
+
 
 /* 
 const ExpenseDashboardPage=()=>(
