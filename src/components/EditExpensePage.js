@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense,startRemoveExpenses } from "../actions/expenseActions";
+import { startEditExpenses,startRemoveExpenses } from "../actions/expenseActions";
 
 
  const EditExpensePage =(props)=> {
@@ -13,8 +13,8 @@ return (
   <ExpenseForm 
  expense={props.expense}
   onSubmit={(expense)=>{
-    console.log(expense);
-    props.dispatch(editExpense(props.expense.id,expense));
+    
+    props.dispatch(startEditExpenses(props.expense.id,expense));
     props.history.push("/");
 
   }}

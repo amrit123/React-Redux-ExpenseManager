@@ -43,6 +43,15 @@ export const editExpense = (id, update) => ({
     update
 })
 
+
+export const startEditExpenses = (id, update) => {
+    console.log(update);
+    return (dispatch) => {
+        database.ref(`expense/${id}`).update(update).then(() => {
+            dispatch(editExpense(id, update));
+        })
+    }
+};
 //SET-Expenses by load data from firebase and set in store
 
 export const setExpenses = (expenses) => ({
