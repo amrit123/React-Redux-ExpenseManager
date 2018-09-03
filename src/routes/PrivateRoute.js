@@ -12,6 +12,7 @@ export const PrivateRoute = ({ isAuthenticated, component: Component, ...remaini
            
         ) : (
                 <Redirect to="/" />
+                //if some one try to access the component like localhose:8080/create without logging ib, it will redirect to the login component
             )
 
     )} />
