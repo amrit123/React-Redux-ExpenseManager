@@ -1,6 +1,6 @@
-//import * as firebase from "firebase";
-import firebase from 'firebase/app';
-import 'firebase/database'; 
+import * as firebase from "firebase";
+ /* import firebase from 'firebase/app';
+import 'firebase/database';   */
 var config = {
     apiKey: "AIzaSyBWQjV97x4Q0l1zLRdJUrox2qm7Rd1AYlo",
     authDomain: "expensetracker-8910b.firebaseapp.com",
@@ -12,4 +12,6 @@ var config = {
   firebase.initializeApp(config);
   const database=firebase.database();
 
-  export {firebase, database as default};
+  const googleAuthProvider= new firebase.auth.GoogleAuthProvider(); //provides authentication using google acount
+
+  export {firebase,googleAuthProvider, database as default};
