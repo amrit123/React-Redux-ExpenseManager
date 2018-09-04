@@ -32,6 +32,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 
 firebase.auth().onAuthStateChanged((user) => {
+    
     if (user) {
         store.dispatch(login(user.uid)); //first store user id to the state
         store.dispatch(startSetExpenses()).then(() => {
