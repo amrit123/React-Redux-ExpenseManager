@@ -8,6 +8,7 @@ import "./styles/styles.scss";
 import { firebase } from "./firebase/firebase";
 import { startSetExpenses } from "./actions/expenseActions";
 import { login, logout } from "./actions/authentication";
+import LoadingPage from "./components/LoadingPage";
 //import "./playground/promise";
 console.log("testing");
 const store = configureStore();
@@ -27,12 +28,12 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        store.dispatch(login(user.uid));
+        store.dispatch(login(user.uid)); //first store user id to the state
         store.dispatch(startSetExpenses()).then(() => {
             renderApp();
             if(history.location.pathname === "/"){ //check if we are in login page
@@ -40,11 +41,12 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         });
     } else {
+        console.log("log out");
         store.dispatch(logout());
         renderApp();
         history.push('/');
     }
-})
+}) 
 
 /* 
 const ExpenseDashboardPage=()=>(

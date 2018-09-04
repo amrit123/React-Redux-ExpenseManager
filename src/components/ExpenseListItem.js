@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { Component } from 'react'
 import { Link} from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -25,21 +26,37 @@ numeral.register('locale', 'no', {
 });
 
 numeral.locale('no');
- const ExpenseListItem=(props)=>(
-    <div>
-    <h1>Item desc</h1>
-  <Link to={`/edit/${props.expenseItem.id}`}> {props.expenseItem.description}</Link>  
-    <br/>
-   Amount: {numeral((props.expenseItem.amount)/100).format("$0,0.00")}
-    <br/>
-   Created At: {moment(props.expenseItem.createdAt).format("Do MMMM, YYYY")}
-   <br/>
-   <button onClick={()=>{
-    props.dispatch(startRemoveExpenses({ id:props.expenseItem.id }));
-    //props.history.push("/");
-}}> remove </button>
-    </div>
- 
-);
+
+
+
+
+export  class ExpenseListItem extends Component {
+    
+   
+  render() {
+    return (
+        
+        <Link className="list-item" to={`/edit/${this.props.expenseItem.id}`}>
+        <div>
+       <h3 className="list-item__title">{this.props.expenseItem.description}</h3> 
+       <span className="list-item__sub-title">{moment(this.props.expenseItem.createdAt).format("Do MMMM, YYYY")}</span>
+        
+        </div>
+      
+        <div>
+        <h3 className="list-item__data">{numeral((this.props.expenseItem.amount)/100).format("$0,0.00")}</h3> 
+        </div>   
+        </Link>
+           
+          
+    )
+  }
+}
+
+
+/* <div className="list-item-action1">
+         <button className="button-danger" onClick={this.removeExpense}> Remove </button>   
+         </div> */
+
 
 export default connect ()(ExpenseListItem);

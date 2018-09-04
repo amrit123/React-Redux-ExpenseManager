@@ -1,35 +1,57 @@
 
-import React from 'react'
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { startEditExpenses,startRemoveExpenses } from "../actions/expenseActions";
+import { startEditExpenses, startRemoveExpenses } from "../actions/expenseActions";
 
+import React, { Component } from 'react'
 
- const EditExpensePage =(props)=> {
+export class EditExpensePage extends Component {
 
-return (
-  <div>
-  <h1>Edit Expense</h1>
-  <ExpenseForm 
- expense={props.expense}
-  onSubmit={(expense)=>{
+  onEditExpense = (expense) => {
+  
+    this.props.dispatch(startEditExpenses(this.props.expense.id, expense));
+    this.props.history.push("/");
+
+  }
+
+  onRemoveExpense = (expense) => {
+
+this.props.dispatch(startRemoveExpenses({ id:this.props.expense.id }));
     
-    props.dispatch(startEditExpenses(props.expense.id,expense));
-    props.history.push("/");
+    this.props.history.push("/");
 
-  }}
-  />
-  <button onClick={()=>{
-    props.dispatch(startRemoveExpenses({ id:props.expense.id }));
-    props.history.push("/");
-}}> remove </button>
-   </div>
- )
+  }
+
+  render() {
+    return (
+      <div>
+      <div className="page-header">
+      <div className="content-container">
+      <div className="page-header__title">
+      <h1>Edit Expense</h1>
+      </div>
+      </div>
+      
+      </div>
+      <div className="content-container">
+      <ExpenseForm
+      expense={this.props.expense}
+      onSubmit={this.onEditExpense}
+    />
+    <button className="button-danger" onClick={this.onRemoveExpense}> Remove Expense </button>
+      </div>
+       
+      </div>
+    )
+  }
 }
- const mapStateToProps=(state,props)=>{
+
+
+
+const mapStateToProps = (state, props) => {
   return {
-      expense:state.expenses.find((expense)=> expense.id === props.match.params.id)
-     
-  } ;
-};  
- export default connect(mapStateToProps)(EditExpensePage) ;
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+
+  };
+};
+export default connect(mapStateToProps)(EditExpensePage);

@@ -58,11 +58,25 @@ export default class ExpenseForm extends Component {
     }
   render() {
     return (
-      <div>
-      {this.state.error && <p>{this.state.error} </p> }
-      <form onSubmit={this.onSubmit}>
-      <input type="text" autoFocus placeholder="Expense Description" value={this.state.description} onChange={this.handleDescriptionChange}/> <br/>
-      <input type="text" placeholder="Expense Amount"  value={this.state.amount} onChange={this.handleAmountChange}/> <br/>
+     
+      
+      <form className="form" onSubmit={this.onSubmit}>
+      {this.state.error && <p className="form-error">{this.state.error} </p> }
+      <input 
+      type="text" 
+      autoFocus 
+      className="text-input"
+      placeholder="Expense Description" 
+      value={this.state.description} 
+      onChange={this.handleDescriptionChange}/>
+       
+      <input 
+      type="text" 
+      className="text-input"
+      placeholder="Expense Amount"  
+      value={this.state.amount} 
+      onChange={this.handleAmountChange}/>
+       
       <SingleDatePicker
        date={this.state.createdAt}
        onDateChange={this.onDateChange}
@@ -70,13 +84,21 @@ export default class ExpenseForm extends Component {
        onFocusChange={this.onFocusChange}
        numberOfMonths={1} //will only show 1 month in the data picker. we can change it to any numeber
        isOutsideRange={()=> false} //will allow to pick past dates
+       block
   
-/>  <br/>
-      <textarea placeholder="Enter note for ypur expense(optional)" value={this.state.note} cols="30" rows="10" onChange={this.handleNoteChange}></textarea> <br/>
-      <button>Add Expense</button>
+/>  
+      <textarea 
+      className="textarea"
+      placeholder="Enter note for ypur expense(optional)" 
+      value={this.state.note} 
+      onChange={this.handleNoteChange}></textarea>
+<div>
+<button className="button">Save Expense</button>
+</div>
+      
      {/*for date picker we are using two library:moment js and airbnb react dates to pick date */}
       </form>
-      </div>
+    
     )
   }
 }

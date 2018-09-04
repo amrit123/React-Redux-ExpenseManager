@@ -1,0 +1,10 @@
+.form{
+    display:flex;
+    flex-direction: column;
+    >*{ //target all direct childern of form
+margin-bottom:$m-size;
+    }
+}
+.form-error{
+    font-style: italic;
+}

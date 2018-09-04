@@ -1,0 +1,20 @@
+.button{
+    padding: $s-size;
+    background-color:$button-color;
+    color: white;
+    border:none;
+    font-size: $font-size-large;
+    font-weight:300;
+    text-decoration: none;
+    display:inline-block;
+    border-radius: 3px;
+    line-height: 1;
+}
+.button__link{
+    background: none;
+}
+
+.button-danger{
+     @extend .button;
+     background-color:$danger;
+}

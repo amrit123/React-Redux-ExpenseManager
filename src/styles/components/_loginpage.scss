@@ -1,0 +1,24 @@
+.login-page{
+     background: url("/image/expense.jpeg"); //imaes is always server by browser from public folder.
+    background-size: cover;
+    width: 100vw;
+    height: 100vh; 
+    opacity: 1.0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box{
+   background: fade-out(white , .15);
+   border-radius: 3px;
+   padding:$l-size $m-size ; //top-bottom left-right
+   text-align: center;
+   width:27rem;
+   color:black
+ 
+}
+.login-box-heading{
+    margin: 0 0 $m-size 0; //top-rignt-bottom-left
+    line-height: 1;
+
+}
