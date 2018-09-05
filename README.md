@@ -1,5 +1,7 @@
 ## what?
 Expensify app that can track your expenses. you can add , edit or delete the expense. the expenses can be searched based on amount and desription and sorted based on date, amount and description.
+firebse in backend with google authentication
+
 Nodejs,webpack,javascript,react,redux,react-router ,scss, express
 ## technology required
 git bash or simple window terminal
